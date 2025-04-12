@@ -1,7 +1,6 @@
 import FileExplorer from './file-explorer';
-import React from 'react';
 
-export default function App() {
+export default function FileExplorerApp() {
   const data = [
     {
       id: 1,
