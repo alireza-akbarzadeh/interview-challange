@@ -67,3 +67,54 @@ Array.prototype.mySort = function (callback) {
 
   return arr;
 };
+
+Object.prototype.myGroupBy = function (array, callback) {
+  let groupBy = new Map();
+
+  for (let index = 0; index < array.length; index++) {
+    const element = array[index];
+    const groupName = callback(element);
+
+    if (!groupBy.has(groupName)) {
+      groupBy.set(groupName, []);
+    }
+    groupBy.get(groupName).push(element);
+  }
+
+  return Object.fromEntries(groupBy);
+};
+
+const inventory = [
+  { name: 'asparagus', type: 'vegetables', quantity: 5 },
+  { name: 'bananas', type: 'fruit', quantity: 0 },
+  { name: 'goat', type: 'meat', quantity: 23 },
+  { name: 'cherries', type: 'fruit', quantity: 5 },
+  { name: 'fish', type: 'meat', quantity: 22 },
+];
+
+const result = Object.myGroupBy(inventory, ({ type }) => type);
+
+Promise.prototype.myAll = function (promises) {
+  return new Promise((resolve, reject) => {
+    const results = [];
+    let completed = 0;
+
+    if (promises.length === 0) {
+      resolve(results);
+      return;
+    }
+
+    promises.forEach((promise, index) => {
+      Promise.resolve(promise)
+        .then((value) => {
+          results[index] = value;
+          completed++;
+
+          if (completed === promises.length) {
+            resolve(results);
+          }
+        })
+        .catch(reject);
+    });
+  });
+};
