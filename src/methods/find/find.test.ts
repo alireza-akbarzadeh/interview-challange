@@ -1,4 +1,5 @@
 import './find';
+import { describe, it, expect } from 'vitest';
 
 describe('Array.prototype.myFind', () => {
   it('should find the first element that satisfies the condition', () => {

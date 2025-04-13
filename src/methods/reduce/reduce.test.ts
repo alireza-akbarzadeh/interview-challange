@@ -1,4 +1,5 @@
 import './reduce';
+import { describe, it, expect } from 'vitest';
 
 describe('Array.prototype.myReduce', () => {
   it('should reduce array to single value', () => {

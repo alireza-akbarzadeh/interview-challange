@@ -1,20 +1,12 @@
-interface Array<T> {
+declare interface Array<T> {
   myReduce<U>(
-    callback: (
-      accumulator: U,
-      currentValue: T,
-      currentIndex: number,
-      array: T[]
-    ) => U,
-    initialValue?: U
-  ): U;
-  myReduce(
     callback: (
       accumulator: U,
       currentValue: any,
       currentIndex: number,
       array: any[]
-    ) => U
+    ) => U,
+    initialValue?: U
   ): U;
 }
 declare interface Array<T> {
