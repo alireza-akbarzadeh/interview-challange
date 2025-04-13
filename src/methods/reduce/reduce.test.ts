@@ -9,7 +9,7 @@ describe('Array.prototype.myReduce', () => {
 
   it('should use first element as initial value if not provided', () => {
     const numbers: number[] = [1, 2, 3, 4];
-    const sum = numbers.myReduce((acc, curr) => acc + curr);
+    const sum = numbers.myReduce((acc: number, curr: number) => acc + curr);
     expect(sum).toBe(10);
   });
 
